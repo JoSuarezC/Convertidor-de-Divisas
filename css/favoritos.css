@@ -1,0 +1,18 @@
+input[type=checkbox].css-checkbox{ display: none; }
+
+.css-label{
+ 
+    display: flex;
+    width: 32px;
+    height: 32px;
+    background-image: url(../img/unlike.png);
+    background-repeat: no-repeat;
+    /* background-color: #E9EEF4; */
+    background-size: contain;
+}
+
+input[type=checkbox].css-checkbox:checked + label.css-label {
+	background-image: url(../img/like.png);
+	background-position: 0 0;
+	/* border: 3px solid #2FBCDF; */
+}

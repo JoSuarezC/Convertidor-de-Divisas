@@ -1,0 +1,110 @@
+
+body{
+	background-color: #ffffff;
+}
+
+.panel-heading{
+	font-family: Arial;;
+	color: #ffffff; 
+	margin: 0 auto;
+	max-width: 1000px;
+	height: 150px;
+	background-color: #000099; 
+	border-radius: 15px 15px 0px 0px;
+}
+
+#wrapperHeader{
+	background-image: url(../img/background2.jpg);
+	/*background-color: #0066cc;*/
+	max-width: 1500px;
+    height: 300px;
+    padding-top: 80px;
+	color: #ffffff; 
+	
+}
+
+#tittle{
+	font-weight: 900;
+    letter-spacing: 1px;
+    font-family: "Times New Roman", Times, serif;
+	margin-left: 250px;
+}
+
+.wrapperInput{
+	margin-top: 20px;
+	margin-left: 50px;
+}
+
+#msg{
+	box-sizing: border-box;
+    color: rgb(0, 34, 114);
+    font-size: 2.2em;
+    height: 60px;
+    width: 250px;
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+#selectpicker{
+	box-sizing: border-box;
+    color: rgb(0, 34, 114);
+    font-size: 2.0em;
+    height: 60px;
+    width: 355px;
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+.selector{
+	margin-left: 300px;
+    margin-top: -60px;
+}
+
+.panel-footer{
+	width: 1000px;
+	margin: 0 auto;
+}
+
+#inputSearchCountries {
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#countriesTable, #favoriteCountriesTable {
+  text-align: center;
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#countriesTable th, #countriesTable td, #favoriteCountriesTable, #favoriteCountriesTable td{
+  text-align: left;
+  padding: 12px;
+}
+
+#countriesTable tr, #favoriteCountriesTable tr{
+  border-bottom: 1px solid #ddd;
+}
+
+#countriesTable tr.header, #countriesTable tr:hover, #favoriteCountriesTable tr.header, #favoriteCountriesTable tr:hover{
+  background-color: #f1f1f1;
+}
+
+
+#buttonConverter{
+  background-image: url(../img/play.png);
+  display: flex;
+  width: 64px;
+  height: 64px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: #ffffff; 
+  margin-left: 700px;
+  margin-top: -60px;
+
+}

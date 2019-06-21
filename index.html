@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="span">
+
+<head>
+  <title>Conversor de divisas</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/favoritos.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <script src="js/checkboxes.js"></script>
+  <script src="js/searchCountry.js"></script>
+  <script src="js/convertirDivisas.js"></script>
+</head>
+
+<body>
+	
+	<div id="wrapperHeader">
+		<h1 id="tittle">Conversor de divisas</h1>
+		<div class="panel-heading">
+			<div class="wrapperInput">
+				<label for="amount">Importe</label>
+				<input id="msg" type="text" class="form-control">
+				<div class="selector">
+					<select id="selectpicker">
+						<option value="aed">AED - Dírham de los EAU</option>
+						<option value="ars">ARS - Peso argentino</option>
+						<option value="aud">AUD - Dólar australiano</option>
+						<option value="bob">BOB - Bolíviano de Bolivia</option>
+						<option value="brl">BRL - Real brasileiro</option>
+						<option value="cad">CAD - Dólar canadiense</option>
+						<option value="cny">CNY - Yuan renminbi chino</option>
+						<option value="cop">COP - Peso colombiano</option>
+						<option value="crc">CRC - Colón costarricense</option>
+						<option value="cup">CUP - Peso cubano</option>
+						<option value="dop">DOP - Peso dominicano</option>
+						<option value="eur">EUR - Euro</option>
+						<option value="hkd">HKD - Dolar de Hong Kong</option>
+						<option value="hnl">HNL - Lempira hondureño</option>
+						<option value="jmd">JMD - Dólar jamaiquino</option>
+						<option value="krw">KRW - Won surcoreano</option>
+						<option value="mxn">MXN -  Peso mexicano</option>
+						<option value="nio">NIO - Córdoba nicaraguense</option>
+						<option value="pab">PAB - Balboa panameña</option>
+						<option value="pen">PEN - Sol peruano</option>
+						<option value="rub">RUB - Rublo ruso</option>
+						<option value="sos">SOS - Chelín somalí</option>
+						<option value="usd">USD - Dólar estadounidense</option>
+						<option value="uyu">UYU - Peso uruguayo</option>
+						<option value="ves">VES - Bolívar venezolano</option>
+					</select>
+				</div>
+				<button id="buttonConverter" type="button" onclick="convertValuta()"></button>
+			</div>
+		
+		</div>
+	</div>
+	
+	<div class="panel-footer">
+		<ul class="nav nav-tabs">
+		  <li class="active"><a data-toggle="tab" href="#seleccionar">Seleccionar divisas</a></li>
+		  <li><a data-toggle="tab" href="#favoritos">Divisas seleccionadas</a></li>
+		</ul>
+
+		<div class="tab-content">
+			<div id="seleccionar" class="tab-pane fade in active">
+				<input type="text" id="inputSearchCountries" onkeyup="searchCountry()" placeholder="Buscar país..">
+				
+				<table id="countriesTable">
+					<tr class="header">
+						<th style="width:30%;">Selección</th>
+						<th style="width:45%;">País</th>
+						<th style="width:25%;">Moneda</th>
+					</tr>
+					
+					<tr>
+						<td> 
+							<input id="checkboxid_AED" value="AED" type="checkbox" class="css-checkbox" onclick="getChecked(this)">
+							<label for="checkboxid_AED" class="css-label"></label>
+						</td>
+						<td> <img src="img/flags/AED.png"> AED</td>
+						<td> Dírham de los EAU</td>
+					</tr>
+
+					<tr>
+						<td> 
+							<input id="checkboxid_ARS" value="ARS" type="checkbox" class="css-checkbox" onclick="getChecked(this)">
+							<label for="checkboxid_ARS" class="css-label"></label>
+						</td>
+						<td> <img src="img/flags/ARS.png"> ARS</td>
+						<td> Peso argentino</td>
+					</tr>
+					
+					<tr>						
+						<td> 
+							<input id="checkboxid_AUD" value="AUD" type="checkbox" class="css-checkbox" onclick="getChecked(this)">
+							<label for="checkboxid_AUD" class="css-label"></label>
+						</td>
+						<td> <img src="img/flags/AUD.png"> AUD</td>
+						<td> Dolar australiano</td>
+					</tr>
+					
+					<tr>						
+						<td> 
+							<input id="checkboxid_BOB" value="BOB" type="checkbox" class="css-checkbox" onclick="getChecked(this)">
+							<label for="checkboxid_BOB" class="css-label"></label>
+						</td>
+						<td> <img src="img/flags/BOB.png"> BOB</td>
+						<td> Bolíviano de Bolivia</td>
+					</tr>
+					
+					<tr>						
+						<td> 
+							<input id="checkboxid_BRL" value="BRL" type="checkbox" class="css-checkbox" onclick="getChecked(this)">
+							<label for="checkboxid_BRL" class="css-label"></label>
+						</td>
+						<td> <img src="img/flags/BRL.png"> BRL</td>
+						<td> Real brasileiro</td>
+					</tr>
+					
+
+					<tr>						
+						<td> 
+							<input id="checkboxid_CAD" value="CAD" type="checkbox" class="css-checkbox" onclick="getChecked(this)">
+							<label for="checkboxid_CAD" class="css-label"></label>
+						</td>
+						<td> <img src="img/flags/CAD.png"> CAD</td>
+						<td> Dólar canadiense</td>
+					</tr>
+
+					<tr>						
+						<td> 
+							<input id="checkboxid_CNY" value="CNY" type="checkbox" class="css-checkbox" onclick="getChecked(this)">
+							<label for="checkboxid_CNY" class="css-label"></label>
+						</td>
+						<td> <img src="img/flags/CNY.png"> CNY</td>
+						<td> Yuan renminbi chino</td>
+					</tr>
+					
+					<tr>						
+						<td> 
+							<input id="checkboxid_COP" value="COP" type="checkbox" class="css-checkbox" onclick="getChecked(this)">
+							<label for="checkboxid_COP" class="css-label"></label>
+						</td>
+						<td> <img src="img/flags/COP.png"> COP</td>
+						<td> Peso colombiano</td>
+					</tr>
+										
+					<tr>					
+						<td> 
+							<input id="checkboxid_CRC" value="CRC" type="checkbox" class="css-checkbox" onclick="getChecked(this)">
+							<label for="checkboxid_CRC" class="css-label"></label>
+						</td>
+						<td> <img src="img/flags/CRC.png"> CRC</td>
+						<td> Colón costarricense</td>
+					</tr>
+										
+					<tr>						
+						<td> 
+							<input id="checkboxid_CUP" value="CUP" type="checkbox" class="css-checkbox" onclick="getChecked(this)">
+							<label for="checkboxid_CUP" class="css-label"></label>
+						</td>
+						<td> <img src="img/flags/CUP.png"> CUP</td>
+						<td> Peso cubano</td>
+					</tr>
+										
+					<tr>						
+						<td> 
+							<input id="checkboxid_DOP" value="DOP" type="checkbox" class="css-checkbox" onclick="getChecked(this)">
+							<label for="checkboxid_DOP" class="css-label"></label>
+						</td>
+						<td> <img src="img/flags/DOP.png"> DOP</td>
+						<td> Peso dominicano</td>
+					</tr>
+										
+					<tr>						
+						<td> 
+							<input id="checkboxid_EUR" value="EUR" type="checkbox" class="css-checkbox" onclick="getChecked(this)">
+							<label for="checkboxid_EUR" class="css-label"></label>
+						</td>
+						<td> <img src="img/flags/EUR.png"> EUR</td>
+						<td> Euro</td>
+					</tr>
+										
+					<tr>						
+						<td> 
+							<input id="checkboxid_HKD" value="HKD" type="checkbox" class="css-checkbox" onclick="getChecked(this)">
+							<label for="checkboxid_HKD" class="css-label"></label>
+						</td>
+						<td> <img src="img/flags/HKD.png"> HKD</td>
+						<td> Dolar de Hong Kong</td>
+					</tr>
+										
+					<tr>						
+						<td> 
+							<input id="checkboxid_HNL" value="HNL" type="checkbox" class="css-checkbox" onclick="getChecked(this)">
+							<label for="checkboxid_HNL" class="css-label"></label>
+						</td>
+						<td> <img src="img/flags/HNL.png"> HNL</td>
+						<td> Lempira hondureño</td>
+					</tr>
+					
+					<tr>
+						<td> 
+							<input id="checkboxid_JMD" value="JMD" type="checkbox" class="css-checkbox" onclick="getChecked(this)">
+							<label for="checkboxid_JMD" class="css-label"></label>
+						</td>
+						<td> <img src="img/flags/JMD.png"> JMD</td>
+						<td> Dólar jamaiquino</td>
+					</tr>
+
+					<tr>
+						<td> 
+							<input id="checkboxid_KRW" value="KRW" type="checkbox" class="css-checkbox" onclick="getChecked(this)">
+							<label for="checkboxid_KRW" class="css-label"></label>
+						</td>
+						<td> <img src="img/flags/KRW.png"> KRW</td>
+						<td> Won surcoreano</td>
+					</tr>
+					
+					<tr>
+						<td> 
+							<input id="checkboxid_MXN" value="MXN" type="checkbox" class="css-checkbox" onclick="getChecked(this)">
+							<label for="checkboxid_MXN" class="css-label"></label>
+						</td>
+						<td> <img src="img/flags/MXN.png"> MXN </td>
+						<td> Peso mexicano</td>
+					</tr>
+
+					<tr>						
+						<td> 
+							<input id="checkboxid_NIO" value="NIO" type="checkbox" class="css-checkbox" onclick="getChecked(this)">
+							<label for="checkboxid_NIO" class="css-label"></label>
+						</td>
+						<td> <img src="img/flags/NIO.png"> NIO</td>
+						<td> Córdoba nicaraguense</td>
+					</tr>
+																		
+					<tr>						
+						<td> 
+							<input id="checkboxid_PAB" value="PAB" type="checkbox" class="css-checkbox" onclick="getChecked(this)">
+							<label for="checkboxid_PAB" class="css-label"></label>
+						</td>
+						<td> <img src="img/flags/PAB.png"> PAB</td>
+						<td> Balboa panameña</td>
+					</tr>
+																							
+					<tr>						
+						<td> 
+							<input id="checkboxid_PEN" value="PEN" type="checkbox" class="css-checkbox" onclick="getChecked(this)">
+							<label for="checkboxid_PEN" class="css-label"></label>
+						</td>
+						<td> <img src="img/flags/PEN.png"> PEN</td>
+						<td> Sol peruan</td>
+					</tr>
+																							
+					<tr>						
+						<td> 
+							<input id="checkboxid_RUB" value="RUB" type="checkbox" class="css-checkbox" onclick="getChecked(this)">
+							<label for="checkboxid_RUB" class="css-label"></label>
+						</td>
+						<td> <img src="img/flags/RUB.png"> RUB</td>
+						<td> Rublo ruso</td>
+					</tr>
+																							
+					<tr>						
+						<td> 
+							<input id="checkboxid_SOS" value="SOS" type="checkbox" class="css-checkbox" onclick="getChecked(this)">
+							<label for="checkboxid_SOS" class="css-label"></label>
+						</td>
+						<td> <img src="img/flags/SOS.png"> SOS</td>
+						<td> Chelín somalí</td>
+					</tr>
+																							
+					<tr>						
+						<td> 
+							<input id="checkboxid_USD" value="USD" type="checkbox" class="css-checkbox" onclick="getChecked(this)">
+							<label for="checkboxid_USD" class="css-label"></label>
+						</td>
+						<td> <img src="img/flags/USD.png"> USD</td>
+						<td> Dólar estadounidense</td>
+					</tr>
+																							
+					<tr>						
+						<td> 
+							<input id="checkboxid_UYU" value="UYU" type="checkbox" class="css-checkbox" onclick="getChecked(this)">
+							<label for="checkboxid_UYU" class="css-label"></label>
+						</td>
+						<td> <img src="img/flags/UYU.png"> UYU</td>
+						<td> Peso uruguayo</td>
+					</tr>
+					
+					<tr>						
+						<td> 
+							<input id="checkboxid_VES" value="VES" type="checkbox" class="css-checkbox" onclick="getChecked(this)"> 
+							<label for="checkboxid_VES" class="css-label"></label>
+						</td>
+						<td> <img src="img/flags/VES.png"> VES</td>
+						<td> Bolívar venezolano</td>
+					</tr>
+					
+				</table>
+			</div>
+		  
+			<div id="favoritos" class="tab-pane fade">
+				<table id="favoriteCountriesTable">
+					<tr class="header">
+						<th style="width:40%;">País</th>
+						<th style="width:30%;">Moneda</th>
+						<th style="width:30%;">Conversión</th>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	
+ 	
+</body>
+</html>
